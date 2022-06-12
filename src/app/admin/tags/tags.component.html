@@ -3,13 +3,13 @@
   <div class="ui two column stackable grid">
     <div class="column">
       <div class="ui segment">
-        <h2 class="ui centered header page-title">Liste des tags</h2>
+        <h2 class="ui centered header page-title">Lista de tags</h2>
         <table class="ui celled compact fixed unstackable table" >
           <thead>
             <tr>
-              <th>Couleur</th>
-              <th>Numéro</th>
-              <th>Assigné</th>
+              <th>Color</th>
+              <th>Numero</th>
+              <th>Asignado</th>
           </thead>
           <tbody>
             <tr *ngFor="let tag of tags">
@@ -31,12 +31,12 @@
               <div class="ui form segment">
                 <div class="ui checkbox">
                   <input type="checkbox" name="onlyAssigned" (change)="toggleShowOnlyAssigned()">
-                  <label>Non-assignés uniquement</label>
+                  <label>Solo sin asignar</label>
                 </div>
                 <div class="field">
-                  <label>Couleur</label>
+                  <label>Color</label>
                   <select class="ui search dropdown" [(ngModel)]="showOnlyColor" (ngModelChange)="find()">
-                    <option value="">Toutes</option>
+                    <option value="">Todos</option>
                     <option *ngFor="let color of colors" [value]="color">{{color}}</option>
                   </select>
                 </div>
@@ -69,7 +69,7 @@
     </div>
     <div class="column">
       <div class="ui stacked segment">
-        <h2 class="ui centered header">Actions</h2>
+        <h2 class="ui centered header">Acciones</h2>
         <form #form="ngForm" class="ui form segment">
           <div class="two fields">
             <div class="field">
@@ -78,25 +78,25 @@
                     min="1" value="1" required>
             </div>
             <div class="field">
-              <label for="tag-to">À </label>
+              <label for="tag-to">A </label>
               <input type="number" name="tag-to" [(ngModel)]="range.to"
                     min="1" value="1" required>
             </div>
           </div>
           <div class="field">
-            <label for="tag-color">Couleur </label>
-            <input type="text" name="tag-color" placeholder="Couleur" [(ngModel)]="range.color" required>
+            <label for="tag-color">Color </label>
+            <input type="text" name="tag-color" placeholder="Color" [(ngModel)]="range.color" required>
           </div>
           <div class="ui basic center aligned segment">
             <div class="ui center aligned buttons">
-              <button name="add-tags" class="ui primary button" (click)="createTags()">Ajouter</button>
-              <button type="button" name="remove-tags" class="ui button" (click)="deleteTags()">Supprimer</button>
+              <button name="add-tags" class="ui primary button" (click)="createTags()">Añadir</button>
+              <button type="button" name="remove-tags" class="ui button" (click)="deleteTags()">Eliminar</button>
             </div>
           </div>
         </form>
         <div class="ui horizontal divider"></div>
         <div class="ui basic center aligned segment">
-          <button name="assign-tags" class="ui red button" (click)="assignTags()">Assigner les tags automatiquement</button>
+          <button name="assign-tags" class="ui red button" (click)="assignTags()">Asignar los tags automaticamente</button>
         </div>
       </div>
     </div>

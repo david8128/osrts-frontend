@@ -18,7 +18,7 @@ declare var jQuery:any;
 export class AppComponent implements AfterViewInit {
 
   constructor(private titleService: Title, private router: Router, public auth: SocketService) {
-    this.titleService.setTitle("Game of Trails - résultats");
+    this.titleService.setTitle("II CNVTE - Resultados");
   }
 
   ngAfterViewInit(){
@@ -27,13 +27,13 @@ export class AppComponent implements AfterViewInit {
   signOut(){
       swal({
           title: '',
-          text: "Êtes vous sûr de vouloir vous déconnecter ?",
+          text: "¿Está seguro de que desea cerrar la sesión?",
           type: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          cancelButtonText: 'Annuler',
-          confirmButtonText: 'Déconnexion'
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Cerrar sesión'
       }).then(()=> {
           this.auth.logout();
           this.router.navigate(['/']);

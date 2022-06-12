@@ -28,7 +28,7 @@ export class TimesComponent implements OnInit, OnDestroy {
         { 'title': 'Checkpoint', 'selector': 'checkpoint_id', 'order': true, 'search': true, 'numeric': true},
         { 'title': 'Tag', 'selector': 'tag', 'order': false, 'search': true},
         { 'title': 'Time', 'selector': 'timestamp', 'order': true, 'search': false},
-        { 'title': 'Date', 'selector': 'date', 'order': true, 'search': true},
+        { 'title': 'Fecha', 'selector': 'date', 'order': true, 'search': true},
         { 'title': 'Actions', 'selector': 'date', 'order': false, 'search': false, 'btn': true, },
     ];
 
@@ -65,35 +65,35 @@ export class TimesComponent implements OnInit, OnDestroy {
 
     remove(key:string){
         swal({
-            title: 'Êtes-vous sûr ?',
-            text: "Les données ne pourront plus être récupérées!",
+            title: '¿Está usted seguro ?',
+            text: "¡Los datos ya no se pueden recuperar!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            cancelButtonText: 'Annuler',
-            confirmButtonText: 'Compris'
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Comprendido'
         }).then(()=> {
             this._timesService.remove(key);
             this.find();
-            swal('Supprimé !');
+            swal('Eliminado!');
         }).catch(e => {});
     }
 
     removeAll(){
         swal({
-            title: 'Êtes-vous sûr ?',
-            text: "Les données ne pourront plus être récupérées!",
+            title: '¿Está usted seguro ?',
+            text: "¡Los datos ya no se pueden recuperar!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            cancelButtonText: 'Annuler',
-            confirmButtonText: 'Compris'
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Comprendido'
         }).then(()=> {
             this._timesService.remove(null);
             this.find();
-            swal('Supprimé !');
+            swal('Eliminados!');
         }).catch(e => {});
     }
 

@@ -15,8 +15,8 @@ import { saveAs } from 'file-saver';
 const request = require('superagent');
 const swal = require('sweetalert2');
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 declare var jQuery: any;
 
 // #####################################
@@ -91,6 +91,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
         if (this.race['counts']) {
           this.pieChartRunnersLabels.push(dateTraveler.format('dddd'));
           this.pieChartRunnersData.push(this.race.counts[dateTraveler.format('DD-MM-YYYY')]);
+          
         }
         this.days.push({
           dayOfWeek: dateTraveler.format('dddd'),
@@ -142,19 +143,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
   */
   importRunners() {
     swal({
-      title: 'Choisissez le fichier',
+      title: 'Cargue el archivo',
       html: '<div class="ui progress green start-hidden" id="progress-process">' +
         '<div class="bar">' +
         '<div class="progress"></div>' +
         '</div>' +
-        '<div class="label">Traitement des données...</div>' +
+        '<div class="label">Cargando los datos...</div>' +
         '</div>',
       input: 'file',
       inputAttributes: {
         accept: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
       },
       showCancelButton: true,
-      confirmButtonText: 'Envoyer',
+      confirmButtonText: 'Enviar',
       showLoaderOnConfirm: true,
       allowOutsideClick: false,
       preConfirm: (file) => {
@@ -165,7 +166,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           const subscribe = self._excelParserService.statusSubject.subscribe((status) => {
             jQuery('#progress-process').progress('set progress', status.step);
             if (status.step === status.nbSteps) {
-              resolve();
+              resolve(false);
             }
           }, (err) => { console.log('err', err); });
           self._excelParserService.parseExcel(file).then((result, error) => {
@@ -175,7 +176,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               reject(error);
               swal({
                 type: 'error',
-                title: 'Une erreur est survenue lors de votre requête !'
+                title: '¡Ocurrió un error durante su solicitud!'
               });
             } else {
               jQuery('#progress-process').progress('set total', result.nbSteps);
@@ -187,7 +188,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.findWaves();
       swal({
         type: 'success',
-        title: 'Données sauvegardées !'
+        title: '¡Datos guardados!'
       });
     }).catch((error) => {
       console.log(error);
@@ -199,7 +200,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   */
   importTimes() {
     swal({
-      title: 'Choisissez le fichier',
+      title: 'Cargue el archivo',
       html: '<div class="ui progress green start-hidden" id="progress-process">' +
         '<div class="bar">' +
         '<div class="progress"></div>' +
@@ -222,7 +223,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           const subscribe = self._timesParserService.statusSubject.subscribe((status) => {
             jQuery('#progress-process').progress('set progress', status.step);
             if (status.step === status.nbSteps) {
-              resolve();
+              resolve(false);
             }
           }, (err) => { });
           self._timesParserService.parseTxt(file).then((result, error) => {
@@ -230,7 +231,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
               reject(error);
               swal({
                 type: 'error',
-                title: 'Une erreur est survenue lors de votre requête !'
+                title: '¡Ocurrió un error durante su solicitud!'
               });
             } else {
               jQuery('#progress-process').progress('set total', result.nbSteps);
@@ -242,7 +243,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.findWaves();
       swal({
         type: 'success',
-        title: 'Données sauvegardées !'
+        title: '¡Datos guardados!'
       });
     }).catch((error) => {
       console.log(error);

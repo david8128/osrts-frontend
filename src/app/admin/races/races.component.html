@@ -1,10 +1,10 @@
-<div class="ui active huge inverted text loader" *ngIf="!race">Chargement</div>
+<div class="ui active huge inverted text loader" *ngIf="!race">Cargando</div>
 <div class="ui container full-height" *ngIf="race">
   <div class="ui one column stackable middle aligned grid full-height">
     <div class="column">
-      <h1 class="ui centered header white-text" *ngIf="dateTo < now">Dernière course</h1>
-      <h1 class="ui centered header white-text" *ngIf="dateTo > now && dateFrom < now">Course en cours</h1>
-      <h1 class="ui centered header white-text" *ngIf="dateFrom > now">Course à venir</h1>
+      <h1 class="ui centered header white-text" *ngIf="dateTo < now">Última carrera</h1>
+      <h1 class="ui centered header white-text" *ngIf="dateTo > now && dateFrom < now">Carrera en curso</h1>
+      <h1 class="ui centered header white-text" *ngIf="dateFrom > now">Próxima carrera</h1>
       <div class="ui centered brown card" *ngIf="dateFrom">
         <div class="content">
             <h2 class="ui center aligned brown dividing header race-place">{{race.place}}</h2>
@@ -30,12 +30,12 @@
         </div>
         <button class="ui animated fade bottom attached button edit-race" [class.disabled]="action!=''" (click)="clickOpenForm('edit')">
           <div class="hidden content"><i class="edit icon"></i></div>
-          <div class="visible content">Modifier</div>
+          <div class="visible content">Modificar</div>
         </button>
       </div>
       <!-- Create new race button -->
       <div class="ui basic center aligned vertical segment" id="segment-button">
-        <button class="ui primary big button create-race" (click)="clickOpenForm('add')">Créer une nouvelle course</button>
+        <button class="ui primary big button create-race" (click)="clickOpenForm('add')">Crear una nueva carrera</button>
       </div>
     </div>
   </div>
@@ -45,35 +45,35 @@
 <!-- Modal -->
 <div class="ui modal modal-race">
   <div class="header">
-      <h2 class="ui centered header" *ngIf="action=='add'">Nouvelle course</h2>
-      <h2 class="ui centered header" *ngIf="action=='edit'">Modification</h2>
+      <h2 class="ui centered header" *ngIf="action=='add'">Nueva carrera</h2>
+      <h2 class="ui centered header" *ngIf="action=='edit'">Modificación</h2>
   </div>
   <div class="content">
     <form class="ui form" (submit)="submitForm($event)" name="formRace">
       <div class="inline field">
-        <label>Lieu</label>
-        <input type="text" name="place" placeholder="Lieu" [(ngModel)]="raceToBeModified.place" required>
+        <label>Lugar</label>
+        <input type="text" name="place" placeholder="Lugar" [(ngModel)]="raceToBeModified.place" required>
       </div>
       <div class="inline fields">
         <div class="eight wide field">
-          <label>Du</label>
-          <input data-toggle="datepicker_from" type="text" name="from" placeholder="JJ-MM-AAAA" [(ngModel)]="raceToBeModified.from" required>
+          <label>De</label>
+          <input data-toggle="datepicker_from" type="text" name="from" placeholder="DD-MM-AAAA" [(ngModel)]="raceToBeModified.from" required>
         </div>
         <div class="eight wide field">
-          <label>au</label>
-          <input  data-toggle="datepicker_to" type="text" name="to" placeholder="JJ-MM-AAAA" [(ngModel)]="raceToBeModified.to" required>
+          <label>Al</label>
+          <input  data-toggle="datepicker_to" type="text" name="to" placeholder="DD-MM-AAAA" [(ngModel)]="raceToBeModified.to" required>
         </div>
       </div>
       <div class="field" *ngIf="action=='add'">
         <div class="ui checkbox">
           <input type="checkbox" [(ngModel)]="hasChecked"  name="hasChecked">
-          <label>Toutes les données de la course précédente seront supprimées</label>
+          <label>Se eliminarán todos los datos de la carrera anterior.</label>
         </div>
       </div>
       <div class="ui basic center aligned segment">
-        <button name="cancel" type="button" class="ui big button" (click)="clickCancel()">Annuler</button>
-        <button name="create" type="submit" class="ui primary big button" [class.disabled]="!hasChecked" *ngIf="action=='add'">Créer</button>
-        <button name="edit" type="submit" class="ui primary big button" *ngIf="action=='edit'">Modifier</button>
+        <button name="cancel" type="button" class="ui big button" (click)="clickCancel()">Cancelar</button>
+        <button name="create" type="submit" class="ui primary big button" [class.disabled]="!hasChecked" *ngIf="action=='add'">Crear</button>
+        <button name="edit" type="submit" class="ui primary big button" *ngIf="action=='edit'">Modificar</button>
       </div>
     </form>
   </div>

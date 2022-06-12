@@ -9,8 +9,8 @@ import { CheckpointsService } from '../services/checkpoints/checkpoints.service'
 import { SocketService } from '../services/feathers.service';
 
 import * as moment from 'moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 
 const FORMAT_TIME = "YYYY-MM-DDTHH:mm:ss.SSSS";
 

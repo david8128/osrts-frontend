@@ -1,12 +1,12 @@
 <div *ngIf="auth.isConnected()"  class="ui inverted large menu hidden-mobile admin-bar">
   <a class="item" *ngIf="router.url.indexOf('admin')>=0" [routerLink]="['/']">
-    <i class="external icon"></i> Voir page visiteurs
+    <i class="external icon"></i> Ver página de visitantes
   </a>
   <a class="item" *ngIf="router.url.indexOf('admin')==-1" [routerLink]="['/admin/']">
-    <i class="browser icon"></i> Section admin
+    <i class="browser icon"></i> Sección de administración
   </a>
   <div class="right menu">
-    <a class="item" (click)="signOut()">Déconnexion</a>
+    <a class="item" (click)="signOut()">Cerrar sesión</a>
   </div>
 </div>
 <router-outlet></router-outlet>

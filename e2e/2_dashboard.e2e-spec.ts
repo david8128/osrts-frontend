@@ -27,7 +27,7 @@ describe('Dashboard Page', function() {
     browser.sleep(500)
     element(by.css('.swal2-confirm')).click();
     browser.sleep(5000)
-    expect(element(by.css('#swal2-title')).getText()).toEqual('Données sauvegardées !');
+    expect(element(by.css('#swal2-title')).getText()).toEqual('¡Datos guardados!');
     browser.sleep(500)
     element(by.css('.swal2-confirm')).click();
   });

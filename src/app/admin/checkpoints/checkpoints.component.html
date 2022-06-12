@@ -1,15 +1,15 @@
-<div class="ui active huge inverted text loader" *ngIf="!loaded">Chargement</div>
+<div class="ui active huge inverted text loader" *ngIf="!loaded">Cargando</div>
 <div class="ui container" *ngIf="loaded">
   <table class="ui unstackable compact celled table">
     <thead>
       <tr class="center aligned">
         <th class="one wide">ID</th>
-        <th class="two wide">Nom du checkpoint</th>
-        <th class="two wide">Dernière connexion</th>
-        <th class="two wide">Scannés aujourd'hui</th>
-        <th class="one wide">En ligne</th>
-        <th class="one wide">Utilisé</th>
-        <th class="one wide">Distance</th>
+        <th class="two wide">Nombre del checkpoint</th>
+        <th class="two wide">Última conexión</th>
+        <th class="two wide">Escaneado hoy</th>
+        <th class="one wide">En linea</th>
+        <th class="one wide">Utilizado</th>
+        <th class="one wide">Distancia</th>
         <th class="four wide"></th>
       </tr>
     </thead>
@@ -63,7 +63,7 @@
       <th></th>
       <th colspan="7">
         <div class="ui right floated small primary icon button" (click)="addCheckpoint()">
-          Add Checkpoint
+          Añadir Checkpoint
         </div>
       </th>
     </tr>
@@ -74,23 +74,23 @@
 <!-- MODAL -->
 <div class="ui modal modal-checkpoint">
   <div class="header">
-      <h2 class="ui centered header">Modification</h2>
+      <h2 class="ui centered header">Modificación</h2>
   </div>
   <div class="content">
     <form class="ui form" name="formCheckpoint" (submit)="submitForm()">
       <div class="inline fields">
             <div class="sixteen wide field">
-          <label>Nom du checkpoint</label>
-          <input type="text" name="from" placeholder="Nom" [(ngModel)]="checkpointToBeModified.title" required>
+          <label>Nombre del checkpoint</label>
+          <input type="text" name="from" placeholder="Nombre" [(ngModel)]="checkpointToBeModified.title" required>
         </div>
             <div class="sixteen wide field">
-          <label>La distance</label>
-          <input type="number" name="from" placeholder="Distance" [(ngModel)]="checkpointToBeModified.distance" required>
+          <label>La distancia</label>
+          <input type="number" name="from" placeholder="Distancia" [(ngModel)]="checkpointToBeModified.distance" required>
         </div>
       </div>
       <div class="ui basic center aligned segment">
-        <button type="button" class="ui big button" (click)="closeModal()">Annuler</button>
-        <button type="submit" class="ui primary big button">Modifier</button>
+        <button type="button" class="ui big button" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="ui primary big button">Modificar</button>
       </div>
     </form>
   </div>
@@ -99,7 +99,7 @@
 <!-- MODAL -->
 <div class="ui modal modal-times">
   <div class="header">
-      <h2 class="ui centered header">Ajouter un temps</h2>
+      <h2 class="ui centered header">Añadir un tiempo</h2>
   </div>
   <div class="content">
     <form class="ui form" name="formCheckpoint" (submit)="submitForm()">
@@ -109,7 +109,7 @@
           <input type="number" placeholder="Checkpoint" *ngIf="modalTimes.checkpoint" [(ngModel)]="modalTimes?.checkpoint.num" name="modal-times-num" required disabled>
         </div>
         <div class="inline field">
-          <label>Runner N°</label>
+          <label>Corredor N°</label>
           <input type="number" placeholder="Runner" [(ngModel)]="modalTimes.runner" name="modal-times-runner" required>
         </div>
         <div class="inline field">
@@ -119,13 +119,13 @@
             </select>
         </div>
         <div class="inline field">
-          <label>Time</label>
+          <label>Tiempo</label>
           <input id="date-picker" type="text" step="1" [(ngModel)]="modalTimes.time" name="modal-times-time" required>
         </div>
       </div>
       <div class="ui basic center aligned segment">
-        <button type="button" class="ui big button" (click)="closeModal()">Annuler</button>
-        <button type="submit" class="ui primary big button" (click)="insertTime()">Ajouter</button>
+        <button type="button" class="ui big button" (click)="closeModal()">Cancelar</button>
+        <button type="submit" class="ui primary big button" (click)="insertTime()">Añadir</button>
       </div>
     </form>
   </div>

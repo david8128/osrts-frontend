@@ -1,4 +1,4 @@
-<div class="ui active huge inverted text loader" *ngIf="!loaded">Chargement</div>
+<div class="ui active huge inverted text loader" *ngIf="!loaded">Cargando</div>
 <div class="results-container results-no-padding-no-margin" *ngIf="loaded">
   <div class="ui basic segment results-no-padding-no-margin">
     <div class="ui fluid segment results-no-padding-no-margin" *ngIf="results">
@@ -8,10 +8,10 @@
           <tr>
             <th class="one wide"><strong>#</strong></th>
             <th class="one wide" *ngIf="isConnected">Tag</th>
-            <th>Nom</th>
-            <th>Sexe</th>
-            <th>Equipe</th>
-            <th class="two wide hidden-desktop">Temps</th>
+            <th>Nombre</th>
+            <th>Sexo</th>
+            <th>Equipo</th>
+            <th class="two wide hidden-desktop">Tiempos</th>
             <th class="three wide hidden-mobile" *ngFor="let checkpoint of checkpoints">
               <div class="ui checkbox">
                 <input type="checkbox" [attr.name]="checkpoint.title" (change)="changeCheckpoint(checkpoint.num)">
@@ -72,7 +72,7 @@
             <th><div class="ui fluid input"><input type="text" name="team_name" [(ngModel)]="filters['teamNameFilter']"></div></th>
             <!-- <th></th> -->
             <th class="hidden-mobile" *ngFor="let checkpoint of checkpoints | slice:0:checkpoints.length-1"></th>
-            <th><button class="ui primary button" (click)="find()">Chercher</button></th>
+            <th><button class="ui primary button" (click)="find()">Buscar</button></th>
           </tr>
         </tfoot>
       </table>
@@ -104,7 +104,7 @@
         </div>
       </div>
       <div class="ui basic segment" *ngIf="lastResult['times']">
-        <h2 class="ui centered header">Dernier temps</h2>
+        <h2 class="ui centered header">Últimos tiempos</h2>
         <table class="ui celled padded compact center aligned unstackable table">
           <tbody>
             <tr>
@@ -144,8 +144,8 @@
       </div>
     </div>
     <div class="ui segment" *ngIf="!results">
-      <h1 class="ui centered header">Pas encore de résultats pour {{momentDate.format("dddd")}}</h1>
+      <h1 class="ui centered header">Aún no hay resultados para el {{momentDate.format("dddd")}}</h1>
     </div>
-    <a [routerLink]="['/']" class="ui left floated button">Retour accueil</a>
+    <a [routerLink]="['/']" class="ui left floated button">Regresar al inicio</a>
   </div>
 </div>

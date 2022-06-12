@@ -10,8 +10,8 @@ declare var jQuery:any;
 declare var swal: any;
 var swal = require('sweetalert2');
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 
 @Component({
     selector: 'app-tags',

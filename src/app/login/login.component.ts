@@ -21,8 +21,8 @@ export class LoginComponent {
       this.postSignIn();
     })
     .catch((error)=>{
-      this.error['title'] = "Connexion refusée";
-      this.error['message'] = "Nom de compte ou mot de passe incorrect.";
+      this.error['title'] = "Conexión denegada";
+      this.error['message'] = "Nombre de cuenta o contraseña incorrectos.";
     });
   }
 

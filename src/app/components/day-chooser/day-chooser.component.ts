@@ -4,8 +4,8 @@
 import { Component, OnInit, Output, EventEmitter  } from '@angular/core';
 import { RaceService } from '../../services/race/race.service';
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 
 @Component({
     selector: 'app-day-chooser',

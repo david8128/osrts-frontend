@@ -9,8 +9,8 @@ import {Subject} from 'rxjs';
 import {Subscription} from 'rxjs';
 declare var jQuery: any;
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 var swal = require('sweetalert2');
 
 @Component({
@@ -65,19 +65,19 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
 
     remove(key: string) {
         swal({
-            title: 'Êtes-vous sûr ?',
-            text: "Les données ne pourront plus être récupérées!",
+            title: 'Está usted seguro?',
+            text: "¡Los datos ya no podrán ser recuperados!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            cancelButtonText: 'Annuler',
-            confirmButtonText: 'Confirmer'
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Confirmar'
         }).then(() => {
             this._checkpointsService.remove(key);
             swal(
-                'Supprimé!',
-                'Le checkpoint a été supprimé.',
+                'Eliminado!',
+                'El checkpoint ha sido eliminado.',
                 'success'
             );
         });
@@ -142,7 +142,7 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
 
     displayConfiguration(c) {
         swal({
-            title: 'Configuration',
+            title: 'Configuración',
             html:
             '<div class="configuration">' +
             '[Checkpoint]<br>' +
@@ -171,8 +171,8 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
         });
 
         var steps = [
-            'N° du checkpoint',
-            'Nom du checkpoint'
+            'N° del checkpoint',
+            'Nombre del checkpoint'
         ];
 
         swal.queue(steps).then((result) => {
@@ -180,7 +180,7 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
             var title = result[1];
             if (isNaN(num)) {
                 swal.resetDefaults()
-                swal("Le numéro n'est pas correct", "", 'error')
+                swal("El numero no es correcto", "", 'error')
             } else {
                 this._checkpointsService.create({ num: num, title: title });
                 swal.resetDefaults()

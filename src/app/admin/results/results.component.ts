@@ -8,8 +8,8 @@ import { TableComponent } from '../../components/table/table.component'
 import { DayChooserComponent } from '../../components/day-chooser/day-chooser.component'
 import {Subject} from 'rxjs';
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 declare var jQuery: any;
 var swal = require('sweetalert2');
 import {Subscription} from 'rxjs';
@@ -38,10 +38,10 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     columns = [
         { 'title': 'N°', 'selector': 'number', 'order': true, 'search': true, 'numeric': true, 'class': 'one wide' },
-        { 'title': 'Nom', 'selector': 'name', 'order': true, 'search': true, 'numeric': false },
+        { 'title': 'Nombre', 'selector': 'name', 'order': true, 'search': true, 'numeric': false },
         { 'title': 'Tag', 'selector': 'tag', 'order': false, 'search': true, 'numeric': false },
         { 'title': 'Team', 'selector': 'team_name', 'order': true, 'search': true, 'numeric': false },
-        { 'title': 'Date', 'selector': 'date', 'order': false, 'search': false, 'numeric': false },
+        { 'title': 'Fecha', 'selector': 'date', 'order': false, 'search': false, 'numeric': false },
         { 'title': 'Start', 'selector': 'start_time', 'order': true, 'search': false, 'numeric': false },
         { 'title': 'Actions', 'selector': 'date', 'order': false, 'search': false, 'numeric': false, 'btn': true, class: 'two wide' },
     ];
@@ -95,19 +95,19 @@ export class ResultsComponent implements OnInit, OnDestroy {
 
     remove(key:string){
         swal({
-            title: 'Êtes-vous sûr ?',
-            text: "Les données ne pourront plus être récupérées!",
+            title: '¿Está usted seguro?',
+            text: "¡Los datos ya no se pueden recuperar!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            cancelButtonText: 'Annuler',
-            confirmButtonText: 'Compris'
+            cancelButtonText: 'Cancelar',
+            confirmButtonText: 'Comprendido'
         }).then(()=> {
             this._resultsService.remove(key);
             this.find();
             swal(
-                'Supprimé !'
+                'Eliminado!'
             )
         }).catch(e => {});
     }

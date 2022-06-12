@@ -6,8 +6,8 @@ import { WavesService } from '../../../services/waves/waves.service';
 declare var jQuery:any;
 var swal = require('sweetalert2');
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 
 @Component({
     selector: 'app-waves',
@@ -46,18 +46,18 @@ export class WavesManagementComponent implements OnInit, OnDestroy {
 
     remove(key:string){
         swal({
-            title: 'Êtes-vous sûr ?',
-            text: "Les données ne pourront plus être récupérées!",
+            title: '¿Está usted seguro?',
+            text: "¡Los datos ya no se pueden recuperar!",
             type: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            cancelButtonText: 'Annuler',
-            confirmButtonText: 'Compris'
+            cancelButtonText: 'Anular',
+            confirmButtonText: 'Comprendido'
         }).then(()=> {
             this._wavesService.remove(key);
             swal(
-                'Supprimé !'
+                'Eliminado!'
             )
         }).catch(e => {});
     }

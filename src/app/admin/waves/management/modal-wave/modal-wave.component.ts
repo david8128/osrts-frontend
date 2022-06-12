@@ -6,8 +6,8 @@ import { WavesService } from '../../../../services/waves/waves.service';
 import { RaceService } from '../../../../services/race/race.service';
 import {IWave, Wave} from '../waves-management.component'
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 declare var jQuery: any;
 
 @Component({

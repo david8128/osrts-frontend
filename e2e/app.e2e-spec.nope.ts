@@ -10,6 +10,6 @@ describe('real-time-racing-system App', function() {
     browser.waitForAngular();
     browser.sleep(500);
     browser.get('/');
-    expect(element(by.css('.page-title')).getText()).toEqual("Bienvenue sur la page des résultats de Game of Trails");
+    expect(element(by.css('.page-title')).getText()).toEqual("Bienvenidos a la página de resultados de la II CNVTE");
   });
 });

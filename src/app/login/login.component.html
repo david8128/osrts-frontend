@@ -4,22 +4,22 @@
         <div class="ui segment">
           <form class="ui large form" (ngSubmit)="signIn()">
           <h2 class="ui header page-title">
-              Connexion à l'espace admin
+              Iniciar sesión en el área de administración
           </h2>
           <div class="field">
             <div class="ui left icon input">
               <i class="user icon"></i>
-              <input class="email" [(ngModel)]="user.email" type="email" name="email" placeholder="Adresse email" required>
+              <input class="email" [(ngModel)]="user.email" type="email" name="email" placeholder="Dirección de correo electrónico" required>
             </div>
           </div>
           <div class="field">
             <div class="ui left icon input">
               <i class="lock icon"></i>
-              <input class="password" [(ngModel)]="user.password" type="password" name="password" placeholder="Mot de passe" required>
+              <input class="password" [(ngModel)]="user.password" type="password" name="password" placeholder="Contraseña" required>
             </div>
           </div>
           <!-- <div class="ui fluid large teal submit button">Login</div> -->
-          <button class="ui fluid large teal submit button" type="submit">Se connecter</button>
+          <button class="ui fluid large teal submit button" type="submit">Iniciar sesión</button>
         </form>
       </div>
       <div class="ui negative message" *ngIf="error.title">

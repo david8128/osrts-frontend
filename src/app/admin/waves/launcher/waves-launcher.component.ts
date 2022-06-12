@@ -8,8 +8,8 @@ declare var jQuery:any;
 declare var swal: any;
 var swal = require('sweetalert2');
 import * as moment from 'moment/moment';
-import 'moment/locale/fr';
-moment.locale('fr');
+import 'moment/locale/es';
+moment.locale('es');
 
 @Component({
     selector: 'app-waves',
@@ -56,13 +56,13 @@ export class WavesLauncherComponent implements OnInit, OnDestroy {
 
   resetWave(wave){
     swal({
-      title: "Êtes-vous sûr ?",
-      text: "Le temps de départ de cette vague va être supprimé !",
+      title: "¿Está usted seguro?",
+      text: "¡Se eliminará la hora de inicio de esta ola!",
       type: "warning",
       showCancelButton: true,
-      cancelButtonText: "Annuler",
+      cancelButtonText: "Cancelar",
       confirmButtonColor: "#DD6B55",
-      confirmButtonText: "Compris!"
+      confirmButtonText: "Comprendido!"
     }).then(()=> {
       this._wavesService.patch(wave._id, {start_time: ""});
     });

@@ -194,19 +194,19 @@ export class RunnersComponent implements OnInit, AfterViewInit, OnDestroy  {
 
   remove(runnerId){
       swal({
-          title: 'Êtes-vous sûr ?',
-          text: "Les données ne pourront plus être récupérées!",
+          title: '¿Está usted seguro?',
+          text: "¡Los datos ya no se pueden recuperar!",
           type: 'warning',
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          cancelButtonText: 'Annuler',
-          confirmButtonText: 'Confirmer'
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Confirmar'
       }).then(()=> {
           this._runnersService.remove(runnerId);
           swal(
-              'Supprimé!',
-              'Le participant a été supprimé.',
+              '¡Eliminado!',
+              'El participante ha sido eliminado.',
               'success'
           )
       });

@@ -70,7 +70,7 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy  {
       this.clickCancel();
     } else {
       swal({
-          title: 'Les mots de passe ne correspondent pas !',
+          title: '¡Las contraseñas no coinciden!',
           type: 'warning'
       });
     }
@@ -86,19 +86,19 @@ export class UsersComponent implements OnInit, AfterViewInit, OnDestroy  {
 
   remove(userId){
     swal({
-        title: 'Êtes-vous sûr ?',
-        text: "Cet admin sera totalement supprimé ! Il ne pourra plus se connecter.",
+        title: 'Está usted seguro?',
+        text: "¡Este administrador será eliminado por completo! Ya no podrá iniciar sesión.",
         type: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        cancelButtonText: 'Annuler',
-        confirmButtonText: 'Confirmer'
+        cancelButtonText: 'Cancelar',
+        confirmButtonText: 'Confirmar'
     }).then(()=> {
         this._usersService.remove(userId);
         swal(
-            'Supprimé!',
-            'Cet admin a été supprimé.',
+            'Eliminado!',
+            'Este administrador ha sido eliminado',
             'success'
         )
     });

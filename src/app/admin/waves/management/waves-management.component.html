@@ -8,18 +8,18 @@
   <app-day-chooser (changeDateEmitter)="changeDate($event)"></app-day-chooser>
   <div class="ui basic fluid center aligned segment" *ngIf="!waves || waves.length==0">
     <div class="ui segment" *ngIf="waves.length==0">
-      <h1 class="ui header">Pas de vagues</h1>
-      <button class="ui primary button" [routerLink]=" ['../dashboard'] ">Importer les coureurs sur la page d'accueil</button>
+      <h1 class="ui header">Sin oleadas</h1>
+      <button class="ui primary button" [routerLink]=" ['../dashboard'] ">Importar corredores en la página de inicio</button>
     </div>
   </div>
   <table class="ui celled unstackable compact table" *ngIf="waves.length>0">
     <thead>
     <tr>
-        <th class="three wide">Type</th>
+        <th class="three wide">Tipo</th>
         <th class="two wide">N°</th>
-        <th class="two wide">Nombre de participants</th>
-        <th class="two wide">Chronométrage</th>
-        <th class="center aligned six wide">Actions</th>
+        <th class="two wide">Número de participantes</th>
+        <th class="two wide">Tiempo cronometrado</th>
+        <th class="center aligned six wide">Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -32,8 +32,8 @@
           <i class="red remove big icon" *ngIf="!wave.chrono"></i>
         </td>
         <td class="center aligned">
-          <button class="ui button edit" (click)="child.load(wave)"><i class="edit icon"></i> Modifier</button>
-          <button class="ui button red remove" (click)="remove(wave._id)"><i class="remove icon"></i> Supprimer</button>
+          <button class="ui button edit" (click)="child.load(wave)"><i class="edit icon"></i> Modificar</button>
+          <button class="ui button red remove" (click)="remove(wave._id)"><i class="remove icon"></i> Eliminar</button>
         </td>
     </tr>
     </tbody>
@@ -42,7 +42,7 @@
         <th></th>
         <th colspan="5">
             <div class="ui right floated small primary labeled icon button add-wave" (click)="child.load(null)">
-                <i class="plus icon"></i> Ajouter
+                <i class="plus icon"></i> Añadir
             </div>
         </th>
     </tr>

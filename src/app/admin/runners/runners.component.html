@@ -3,8 +3,8 @@
 
   <div class="ui basic fluid center aligned segment" *ngIf="!runners">
     <div class="ui segment">
-      <h1 class="ui header">Pas de coureurs</h1>
-      <button class="ui primary button" [routerLink]=" ['../dashboard'] ">Importer les coureurs sur la page d'accueil</button>
+      <h1 class="ui header">No hay corredores</h1>
+      <button class="ui primary button" [routerLink]=" ['../dashboard'] ">Importar corredores a la página de inicio</button>
     </div>
   </div>
   <table class="ui striped compact unstackable table" *ngIf="runners">
@@ -15,7 +15,7 @@
           <a href="javascript:;" class="black-text" class="sort-name"
           [class.right]="isThisColumnSort('name')" [class.labeled]="isThisColumnSort('name')" [class.icon]="isThisColumnSort('name')"
           (click)="clickColumn('name')">
-            Nom
+            Nombre
             <i class="sort descending icon" *ngIf="isThisColumnSort('name') && direction=='asc'"></i>
             <i class="sort ascending icon" *ngIf="isThisColumnSort('name') && direction=='desc'"></i>
           </a>
@@ -51,7 +51,7 @@
           <a href="javascript:;" class="black-text"
           [class.right]="isThisColumnSort('team_name')" [class.labeled]="isThisColumnSort('team_name')" [class.icon]="isThisColumnSort('team_name')"
           (click)="clickColumn('team_name')">
-            Nom de team
+            Nombre de team
             <i class="sort descending icon" *ngIf="isThisColumnSort('team_name') && direction=='asc'"></i>
             <i class="sort ascending icon" *ngIf="isThisColumnSort('team_name') && direction=='desc'"></i>
           </a>
@@ -77,7 +77,7 @@
         <th class="two wide">Actions</th>
       </tr>
     </thead>
-    <div class="ui active huge inverted text loader" *ngIf="!loaded">Chargement</div>
+    <div class="ui active huge inverted text loader" *ngIf="!loaded">Cargando</div>
     <tbody *ngIf="loaded">
       <!-- DATA -->
       <tr *ngFor="let runner of runners">
@@ -104,16 +104,16 @@
         <!-- FILTERING -->
           <th>
             <div class="ui fluid input" >
-              <input type="text" name="filter-name" [(ngModel)]="filters['nameFilter']" placeholder="Nom">
+              <input type="text" name="filter-name" [(ngModel)]="filters['nameFilter']" placeholder="Nombre">
             </div>
           </th>
           <th class=""></th>
           <th><div class="ui fluid input" ><input type="text" name="filter-age" [(ngModel)]="filters['ageFilter']" placeholder="Âge"></div></th>
           <th><div class="ui fluid input" ><input type="text" name="filter-tag_id" [(ngModel)]="filters['tagIdFilter']" placeholder="Tag"></div></th>
-          <th><div class="ui fluid input" ><input type="text" name="filter-team_name" [(ngModel)]="filters['teamNameFilter']" placeholder="Nom d'équipe"></div></th>
+          <th><div class="ui fluid input" ><input type="text" name="filter-team_name" [(ngModel)]="filters['teamNameFilter']" placeholder="Nombre d'équipe"></div></th>
           <th><div class="ui fluid input" ><input type="text" name="filter-type" [(ngModel)]="filters['typeFilter']" placeholder="Type"></div></th>
           <th><div class="ui fluid input" ><input type="text" name="filter-wave" [(ngModel)]="filters['waveFilter']" placeholder="Num"></div></th>
-          <th><button class="ui primary button" type="submit" (click)="search()">Chercher</button></th>
+          <th><button class="ui primary button" type="submit" (click)="search()">Buscar</button></th>
       </tr>
     </tfoot>
   </table>
@@ -129,8 +129,8 @@
       <h3 class="ui brown header"><i class="user icon"></i><div class="content">Participant</div></h3>
       <div class="inline fields">
         <div class="eight wide field">
-          <label>Nom</label>
-          <input type="text" name="name" placeholder="Nom" [(ngModel)]="runnerToBeModified.name" required>
+          <label>Nombre</label>
+          <input type="text" name="name" placeholder="Nombre" [(ngModel)]="runnerToBeModified.name" required>
         </div>
         <div class="eight wide field">
           <label>Âge</label>
@@ -157,7 +157,7 @@
       <h3 class="ui brown header"><i class="users icon"></i><div class="content">Team</div></h3>
       <div class="inline fields">
         <div class="eight wide field">
-          <label>Nom de team</label>
+          <label>Nombre de team</label>
           <input type="text" name="team_name" placeholder="Team name" [(ngModel)]="runnerToBeModified.team_name" required>
         </div>
       </div>
@@ -173,8 +173,8 @@
       </div>
       <h6 class="ui header">Les modifications dans la team ne sont pas enregistrées automatiquement chez les autres membres !</h6>
       <div class="ui basic center aligned segment">
-        <button type="button" class="ui big button cancel-modal" (click)="clickCancel()">Annuler</button>
-        <button type="submit" class="ui green big button save-modal">Modifier</button>
+        <button type="button" class="ui big button cancel-modal" (click)="clickCancel()">Cancelar</button>
+        <button type="submit" class="ui green big button save-modal">Modificar</button>
       </div>
     </form>
   </div>

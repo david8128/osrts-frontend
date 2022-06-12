@@ -23,7 +23,7 @@ export class TimesParserService {
   }
 
   public parseTxt(file){
-    console.log("Parse")
+    console.log("Parse");
     return this._socketParser.create(file).catch((err)=>{});
   }
 

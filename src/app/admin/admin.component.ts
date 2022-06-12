@@ -26,8 +26,8 @@ export class AdminComponent implements AfterViewInit {
           showCancelButton: true,
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
-          cancelButtonText: 'Annuler',
-          confirmButtonText: 'Déconnexion'
+          cancelButtonText: 'Cancelar',
+          confirmButtonText: 'Cerrar sesión'
       }).then(()=> {
           this.socketService.logout();
           this.router.navigate(['/']);

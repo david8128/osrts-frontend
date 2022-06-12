@@ -1,7 +1,7 @@
-<div class="ui active huge inverted text loader" *ngIf="!loaded">Chargement</div>
+<div class="ui active huge inverted text loader" *ngIf="!loaded">Cargando</div>
 <div class="ui container" *ngIf="loaded">
 
-    <button class="ui button red right floated" (click)="removeAll()">(Supprimer tout)</button>
+    <button class="ui button red right floated" (click)="removeAll()">(Eliminar todos)</button>
     <app-table [nbPages]="data.count" [columns]="columns" (queryUpdated)="handleQueryUpdated($event)">
         <tr *ngFor="let time of data.times">
             <td>{{time.checkpoint_id}}</td>
@@ -13,7 +13,7 @@
             <td><span>{{ time.timestamp | amDateFormat: 'H:mm:ss' }}</span></td>
             <td><span>{{ (time.timestamp) | amDateFormat: 'DD-MM-YYYY' }}</span></td>
             <td>
-                <button class="tiny ui button red" (click)="remove(time._id)"><i class="remove icon"></i> Supprimer</button>
+                <button class="tiny ui button red" (click)="remove(time._id)"><i class="remove icon"></i> Eliminar</button>
             </td>
         </tr>
     </app-table>
