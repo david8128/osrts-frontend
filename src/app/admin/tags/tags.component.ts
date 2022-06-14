@@ -26,9 +26,9 @@ export class TagsComponent implements OnInit, OnDestroy {
   tags:any;
   totalTags:Number;
   tagsSubscription: Subscription;
-  range={from:1, to:1, color: ""};
-  colors=[];
-  showOnlyColor="";
+  range={from:1, to:1, itr: ""};
+  itrs=[];
+  showOnlyITR="";
   showOnlyNotAssigned=false;
 
   // paging
@@ -43,7 +43,7 @@ export class TagsComponent implements OnInit, OnDestroy {
 
   ngOnInit(){
     this.raceSubscription = this._raceService.raceSubject.subscribe((data)=>{
-      this.colors = data.tagsColor;
+      this.itrs = data.tagsITR;
     });
     this._raceService.get();
     this.tagsSubscription = this._tagsService.tagsSubject.subscribe((data)=>{
@@ -55,31 +55,31 @@ export class TagsComponent implements OnInit, OnDestroy {
   }
 
   find(){
-    let query = {$sort: {color: 1, num:1 }};
+    let query = {$sort: {itr: 1, num:1 }};
     query['$skip'] = (this.currentPage-1)*this._tagsService.NB_TAGS;
     query['$limit'] = this._tagsService.NB_TAGS;
     if(this.showOnlyNotAssigned)
       query['assigned'] = false;
-    if(this.showOnlyColor){
-      query['color'] = this.showOnlyColor;
+    if(this.showOnlyITR){
+      query['itr'] = this.showOnlyITR;
     }
     this._tagsService.find({query: query});
   }
 
   createTags(){
-    if(this.checkRange() && this.range.color && this.range.color.length!=0){
+    if(this.checkRange() && this.range.itr && this.range.itr.length!=0){
       this._tagsService.create(this.range);
-      if(this.colors.indexOf(this.range.color)==-1){
-        this.colors.push(this.range.color);
+      if(this.itrs.indexOf(this.range.itr)==-1){
+        this.itrs.push(this.range.itr);
       }
-      this.range = {from:1, to:1, color:""};
+      this.range = {from:1, to:1, itr:""};
     }
   }
 
   deleteTags(){
     if(this.checkRange()){
       this._tagsService.remove(this.range);
-      this.range = {from:1, to:1, color:""};
+      this.range = {from:1, to:1, itr:""};
     }
   }
 

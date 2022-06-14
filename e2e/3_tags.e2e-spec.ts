@@ -15,7 +15,7 @@ describe('Tags Page', function() {
   it('should remove all tags', () => {
     element(by.name('tag-from')).clear();
     element(by.name('tag-to')).clear();
-    element(by.name('tag-color')).clear();
+    element(by.name('tag-itr')).clear();
     element(by.name('tag-from')).sendKeys("1");
     element(by.name('tag-to')).sendKeys("1000");
     element(by.name('remove-tags')).click();
@@ -28,7 +28,7 @@ describe('Tags Page', function() {
     element(by.name('tag-to')).clear();
     element(by.name('tag-from')).sendKeys("1");
     element(by.name('tag-to')).sendKeys("250");
-    element(by.name('tag-color')).sendKeys("Bleu");
+    element(by.name('tag-itr')).sendKeys("Bleu");
     element(by.name('add-tags')).click();
     browser.sleep(1000);
     expect(element(by.css('.total-tags')).getText()).toEqual('250');
@@ -39,7 +39,7 @@ describe('Tags Page', function() {
     element(by.name('tag-to')).clear();
     element(by.name('tag-from')).sendKeys("1");
     element(by.name('tag-to')).sendKeys("250");
-    element(by.name('tag-color')).sendKeys("Orange");
+    element(by.name('tag-itr')).sendKeys("Orange");
     element(by.name('add-tags')).click();
     browser.sleep(1000);
     expect(element(by.css('.total-tags')).getText()).toEqual('500');

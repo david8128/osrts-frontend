@@ -69,7 +69,7 @@ export class TableComponent implements OnInit {
                 if (element.selector == 'tag') {
                     if (isNaN(element.data)) {
                         let letter = element.data[0];
-                        query['tag.color'] = { $search: letter };
+                        query['tag.itr'] = { $search: letter };
                         if (element.data.length > 1) {
                             let num = parseInt(element.data.slice(1));
                             query['tag.num'] = num;

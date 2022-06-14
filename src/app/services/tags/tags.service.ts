@@ -56,9 +56,9 @@ export class TagsService {
 
   public remove(range){
     var query = {query: {num: {$lte: range.to, $gte: range.from}}};
-    if(range.color && range.color.length>1){
+    if(range.itr && range.itr.length>1){
       console.log(range);
-      query.query['color'] = range.color;
+      query.query['itr'] = range.itr;
     }
     this._socket.remove(null, query);
   }

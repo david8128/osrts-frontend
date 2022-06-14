@@ -31,7 +31,7 @@
               </span>
             </td>
             <td *ngIf="isConnected">
-                <span class="ui image label" [ngClass]="{'yellow': result.tag.color == 'Orange', 'blue': result.tag.color == 'Bleu'}" style="width: 100px !important">
+                <span class="ui image label" [ngClass]="{'yellow': result.tag.itr == 'Orange', 'blue': result.tag.itr == 'Bleu'}" style="width: 100px !important">
                   {{result.tag.num}}
                 </span>
             </td>
@@ -47,10 +47,10 @@
             </td>
             <td *ngFor="let checkpoint of checkpoints" class="hidden-mobile">
               <span *ngIf="result.times[checkpoint.num] && result.times[checkpoint.num].timeMoment.hours()!=0">
-                {{result.times[checkpoint.num].timeMoment.format('H:mm:ss')}} ({{result.times[checkpoint.num].speed}}km/h)
+                {{result.times[checkpoint.num].timeMoment.format('H:mm:ss-SSS')}} ({{result.times[checkpoint.num].speed}}km/h)
               </span>
               <span *ngIf="result.times[checkpoint.num] && result.times[checkpoint.num].timeMoment.hours()==0">
-                {{result.times[checkpoint.num].timeMoment.format('mm:ss')}} ({{result.times[checkpoint.num].speed}}km/h)
+                {{result.times[checkpoint.num].timeMoment.format('mm:ss-SSS')}} ({{result.times[checkpoint.num].speed}}km/h)
               </span>
             </td>
             <td class="hidden-desktop">

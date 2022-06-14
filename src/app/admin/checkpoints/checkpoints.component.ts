@@ -27,7 +27,7 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
     checkpoints = [];
     modalTimes: any = {};
     raceSubscription: Subscription;
-    colors = [];
+    itrs = [];
     constructor(
         private _checkpointsService: CheckpointsService,
         private _raceService: RaceService,
@@ -44,8 +44,8 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
             this.loaded = true;
         });
         this.raceSubscription = this._raceService.raceSubject.subscribe((data) => {
-            this.colors = data.tagsColor;
-            console.log(this.colors);
+            this.itrs = data.tagsITR;
+            console.log(this.itrs);
         });
         this._raceService.get();
         this.find();
@@ -129,7 +129,7 @@ export class CheckpointsComponent implements OnInit, OnDestroy {
             checkpoint_id: this.modalTimes.checkpoint.num,
             tag: {
                 num: this.modalTimes.runner,
-                color: this.modalTimes.color
+                itr: this.modalTimes.itr
             }
         }).then((data)=>{
             console.log(time.toISOString());

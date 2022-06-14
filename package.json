@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
     "@chenfengyuan/datepicker": "^1.0.5",
+    "@ngx-env/builder": "^0.1.5",
     "angular2-moment": "^1.7.0",
     "angular2-uuid": "^1.1.1",
     "chart.js": "^2.7.0",

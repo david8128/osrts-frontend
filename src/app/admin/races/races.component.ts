@@ -90,7 +90,7 @@ export class RacesComponent implements OnInit, AfterViewInit, OnDestroy {
         if(!this.dateFrom){
           this._raceService.create(this.raceToBeModified);
         } else {
-          this.raceToBeModified.tagsColor = this.race.tagsColor;
+          this.raceToBeModified.tagsITR = this.race.tagsITR;
           this._raceService.update(this.raceToBeModified);
         }
       } else {

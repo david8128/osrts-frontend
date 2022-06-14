@@ -57,6 +57,7 @@ export class ResultsComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.subscription = this._resultsService.resultsSubject.subscribe((data) => {
             this.data = data;
+            console.log(data);
             this.loaded = true;
         });
 

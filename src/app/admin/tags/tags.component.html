@@ -7,13 +7,13 @@
         <table class="ui celled compact fixed unstackable table" >
           <thead>
             <tr>
-              <th>Color</th>
+              <th>ID Tag-Runner</th>
               <th>Numero</th>
               <th>Asignado</th>
           </thead>
           <tbody>
             <tr *ngFor="let tag of tags">
-              <td>{{tag.color}}</td>
+              <td>{{tag.itr}}</td>
               <td>{{tag.num}}</td>
               <td>
                 <i class="green checkmark big icon" *ngIf="tag.assigned==true"></i>
@@ -34,10 +34,10 @@
                   <label>Solo sin asignar</label>
                 </div>
                 <div class="field">
-                  <label>Color</label>
-                  <select class="ui search dropdown" [(ngModel)]="showOnlyColor" (ngModelChange)="find()">
+                  <label>ID Tag-Runner</label>
+                  <select class="ui search dropdown" [(ngModel)]="showOnlyITR" (ngModelChange)="find()">
                     <option value="">Todos</option>
-                    <option *ngFor="let color of colors" [value]="color">{{color}}</option>
+                    <option *ngFor="let itr of itrs" [value]="itr">{{itr}}</option>
                   </select>
                 </div>
               </div>
@@ -84,8 +84,8 @@
             </div>
           </div>
           <div class="field">
-            <label for="tag-color">Color </label>
-            <input type="text" name="tag-color" placeholder="Color" [(ngModel)]="range.color" required>
+            <label for="tag-itr">ID Tag-Runner </label>
+            <input type="text" name="tag-itr" placeholder="ID Tag-Runner" [(ngModel)]="range.itr" required>
           </div>
           <div class="ui basic center aligned segment">
             <div class="ui center aligned buttons">

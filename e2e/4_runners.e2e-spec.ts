@@ -118,7 +118,7 @@ describe('Runners Page', function() {
         page.setValue('couleur', 'Orange')
         element(by.css('.save-modal')).click();
         browser.sleep(1000);
-        expect(page.getSweetTitle()).toEqual('Erreur');
+        expect(page.getSweetTitle()).toEqual('Error');
         expect(page.getSweetContent()).toEqual('Déjà un coureur avec ce tag !');
         page.closeSweet()
     });
@@ -128,7 +128,7 @@ describe('Runners Page', function() {
         page.setValue('tag_id', '556')
         page.setValue('couleur', 'Orange')
         page.save();
-        expect(page.getSweetTitle()).toEqual('Erreur');
+        expect(page.getSweetTitle()).toEqual('Error');
         expect(page.getSweetContent()).toEqual('Ce tag n\'existe pas !');
         page.closeSweet()
     });
@@ -171,7 +171,7 @@ describe('Runners Page', function() {
         page.edit(0);
         page.setValue('wave', '4')
         page.save()
-        expect(page.getSweetTitle()).toEqual('Erreur');
+        expect(page.getSweetTitle()).toEqual('Error');
         expect(page.getSweetContent()).toEqual('Il n\'y a pas de vague avec ce type et ce numéro !');
         page.closeSweet()
     });

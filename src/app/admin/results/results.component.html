@@ -6,8 +6,8 @@
             <td>{{result.number}}</td>
             <td>{{result.name}}</td>
             <td>
-                <span class="ui image label" [ngClass]="{'yellow': result.tag.color == 'Orange', 'blue': result.tag.color == 'Bleu'}" style="width: 100px !important">
-                        {{result.tag.num}} - {{result.tag.color}}
+                <span class="ui image label" [ngClass]="{'yellow': result.tag.itr == 'Orange', 'blue': result.tag.itr == 'Bleu'}" style="width: 100px !important">
+                        {{result.tag.num}} - {{result.tag.itr}}
                     </span>
             </td>
             <td>{{result.team_name}}</td>

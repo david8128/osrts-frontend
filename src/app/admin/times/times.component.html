@@ -6,8 +6,8 @@
         <tr *ngFor="let time of data.times">
             <td>{{time.checkpoint_id}}</td>
             <td>
-                <span class="ui image label" [ngClass]="{'yellow': time.tag.color == 'Orange', 'blue': time.tag.color == 'Bleu'}" style="width: 100px !important">
-                        {{time.tag.num}} - {{time.tag.color}}
+                <span class="ui image label" style="width: 100px !important">
+                        {{time.tag.num}} - {{time.tag.itr}}
                     </span>
             </td>
             <td><span>{{ time.timestamp | amDateFormat: 'H:mm:ss' }}</span></td>

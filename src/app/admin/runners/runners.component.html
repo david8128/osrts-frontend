@@ -42,7 +42,7 @@
           <a href="javascript:;" class="black-text"
           [class.right]="isThisColumnSort('tag_id')" [class.labeled]="isThisColumnSort('tag_id')" [class.icon]="isThisColumnSort('tag_id')"
           (click)="clickColumn('tag_id')">
-            Tag id
+            Tag ID
             <i class="sort descending icon" *ngIf="isThisColumnSort('tag_id') && direction=='asc'"></i>
             <i class="sort ascending icon" *ngIf="isThisColumnSort('tag_id') && direction=='desc'"></i>
           </a>
@@ -69,7 +69,7 @@
           <a href="javascript:;" class="black-text"
           [class.right]="isThisColumnSort('wave')" [class.labeled]="isThisColumnSort('wave')" [class.icon]="isThisColumnSort('wave')"
           (click)="clickColumn('wave')">
-              Vague
+              Oleada
             <i class="sort descending icon" *ngIf="isThisColumnSort('wave') && direction=='asc'"></i>
             <i class="sort ascending icon" *ngIf="isThisColumnSort('wave') && direction=='desc'"></i>
           </a>
@@ -87,7 +87,7 @@
           <i class="large pink female icon" *ngIf="runner.gender=='F'"></i>
         </td>
         <td class="center aligned">{{runner.age}}</td>
-        <td><span *ngIf="runner.tag && runner.tag.num!=-1">{{runner.tag.color[0]}}{{runner.tag.num}}</span></td>
+        <td><span *ngIf="runner.tag && runner.tag.num!=-1">{{runner.tag.num}}_{{runner.tag.itr}}</span></td>
         <td>{{runner.team_name}}</td>
         <td>{{runner.type}}</td>
         <td>{{runner.wave_id}}</td>
@@ -126,32 +126,32 @@
   </div>
   <div class="content">
     <form class="ui form" (submit)="submitForm($event)" name="formRunner">
-      <h3 class="ui brown header"><i class="user icon"></i><div class="content">Participant</div></h3>
+      <h3 class="ui brown header"><i class="user icon"></i><div class="content">Participante</div></h3>
       <div class="inline fields">
         <div class="eight wide field">
           <label>Nombre</label>
           <input type="text" name="name" placeholder="Nombre" [(ngModel)]="runnerToBeModified.name" required>
         </div>
         <div class="eight wide field">
-          <label>Âge</label>
+          <label>Edad</label>
           <input type="number" name="age" placeholder="xx" [(ngModel)]="runnerToBeModified.age" required>
         </div>
       </div>
       <div class="inline fields">
         <div class="eight wide field">
-          <label>Sexe (H ou F)</label>
+          <label>Sexo (M o F)</label>
           <input type="text" name="gender" placeholder="Sexe" [(ngModel)]="runnerToBeModified.gender" required>
         </div>
         <div class="four wide field" *ngIf="runnerToBeModified.tag" >
-          <label>Tag id</label>
+          <label>Tag ID</label>
           <input type="text" name="tag_id" placeholder="Tag id" [(ngModel)]="runnerToBeModified.tag.num">
         </div>
         <div class="four wide field" *ngIf="runnerToBeModified.tag">
-          <label>Couleur</label>
-          <input type="text" name="couleur" placeholder="Couleur"  [(ngModel)]="runnerToBeModified.tag.color">
+          <label>ID Tag-Runner</label>
+          <input type="text" name="couleur" placeholder="ID Tag-Runner"  [(ngModel)]="runnerToBeModified.tag.itr">
         </div>
         <div class="four wide field" *ngIf="!runnerToBeModified.tag">
-            <button type="button" class="ui mini button add-new-tag" (click)="addTag(runnerToBeModified)">Ajouter un tag</button>
+            <button type="button" class="ui mini button add-new-tag" (click)="addTag(runnerToBeModified)">Añadir un tag</button>
         </div>
       </div>
       <h3 class="ui brown header"><i class="users icon"></i><div class="content">Team</div></h3>
@@ -163,15 +163,15 @@
       </div>
       <div class="inline fields">
         <div class="eight wide field">
-          <label>Type</label>
+          <label>Tipo</label>
           <input type="text" name="type" placeholder="Type" [(ngModel)]="runnerToBeModified.type" required>
         </div>
         <div class="eight wide field">
-          <label>Vague</label>
+          <label>Oleada</label>
           <input type="text" name="wave" placeholder="Wave" [(ngModel)]="runnerToBeModified.wave_id" required>
         </div>
       </div>
-      <h6 class="ui header">Les modifications dans la team ne sont pas enregistrées automatiquement chez les autres membres !</h6>
+      <h6 class="ui header">¡Los cambios en el equipo no se guardan automáticamente para otros miembros!</h6>
       <div class="ui basic center aligned segment">
         <button type="button" class="ui big button cancel-modal" (click)="clickCancel()">Cancelar</button>
         <button type="submit" class="ui green big button save-modal">Modificar</button>

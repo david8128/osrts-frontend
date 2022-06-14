@@ -88,13 +88,13 @@ export class RunnersComponent implements OnInit, AfterViewInit, OnDestroy  {
       if(this.columnSort!="tag_id")
         query['$sort'][this.columnSort] = 1;
       else{
-        query['$sort'] = {"tag.color": 1, "tag.num": 1};
+        query['$sort'] = {"tag.itr": 1, "tag.num": 1};
       }
     } else {
       if(this.columnSort!="tag_id")
         query['$sort'][this.columnSort] = -1;
       else{
-        query['$sort'] = {"tag.color": -1, "tag.num": -1};
+        query['$sort'] = {"tag.itr": -1, "tag.num": -1};
       }
     }
     query['$skip'] = (this.currentPage-1)*this._runnersService.NB_RUNNERS;
@@ -115,12 +115,12 @@ export class RunnersComponent implements OnInit, AfterViewInit, OnDestroy  {
     }
   }
 
-  // Special method for the tags because they are on "two" fields ({tag: {num: ..., color: ...}})
+  // Special method for the tags because they are on "two" fields ({tag: {num: ..., itr: ...}})
   checkAndAddFilterForTags(query, filter){
     if(filter!=""){
       if(isNaN(filter)){
         let letter = filter[0];
-        query['tag.color'] = {$search: letter};
+        query['tag.itr'] = {$search: letter};
         if(filter.length>1){
           let num = parseInt(filter.slice(1));
           query['tag.num'] = num;
@@ -165,7 +165,7 @@ export class RunnersComponent implements OnInit, AfterViewInit, OnDestroy  {
     }).catch((err)=>{
         this.clickCancel();
         swal({
-            title: 'Erreur',
+            title: 'Error',
             text: err.message,
             type: 'error',
             showCancelButton: false,
